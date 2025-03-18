@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUEGOSJOAODANIEL.com</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to bottom, #33ccff, #ff99cc);
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+
+        .featured-games {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            max-width: 800px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background-color: #f0f0f0;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 0.5em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            margin-top: 2em;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        form input,
+        form textarea,
+        form button {
+            width: calc(100% - 20px);
+            margin-bottom: 1em;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        form button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        .mensaje-enviado {
+            color: green;
+            font-weight: bold;
+            margin-top: 1em;
+        }
+
+        /* Media Queries para responsividad */
+        @media (max-width: 600px) {
+            main {
+                padding: 1em;
+            }
+            .featured-games {
+                padding: 0.5em;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>juegosJoao.com</h1>
+    </header>
+    <main>
+        <section class="featured-games">
+            <h2>Juegos Destacados</h2>
+            <div class="game-grid">
+                <div class="game-card">
+                    <h3>Fortnite</h3>
+                    <p>Fortnite es un juego de supervivencia en línea donde los jugadores deben luchar para ser el último en pie en una isla con otros 99 jugadores.</p>
+                </div>
+                <div class="game-card">
+                    <h3>Roblox</h3>
+                    <p>Roblox es una plataforma de juegos en línea que permite a los usuarios crear sus propios juegos y jugar juegos creados por otros usuarios.</p>
+                </div>
+                <div class="game-card">
+                    <h3>Need for Speed</h3>
+                    <p>Need for Speed es una serie de juegos de carreras que se centra en la velocidad y el estilo, con una variedad de coches y modos de juego.</p>
+                </div>
+            </div>
+        </section>
+
+        <form id="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+
+            <label for="comentario">Comentario:</label>
+            <textarea id="comentario" required></textarea>
+
+            <button type="submit">Enviar Comentario</button>
+            <div id="mensaje" class="mensaje-enviado"></div>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 JUEGOSJOAODANIEL.com</p>
+    </footer>
+
+    <script>
+        document.getElementById('formulario').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('mensaje').innerText = 'El comentario fue enviado con éxito';
+            // Aquí puedes agregar código para enviar el comentario a un servidor
+            // Por ahora, solo muestra el mensaje de confirmación
+            setTimeout(function() {
+                document.getElementById('mensaje').innerText = '';
+                document.getElementById('formulario').reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
